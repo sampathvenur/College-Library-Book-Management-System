@@ -1,0 +1,107 @@
+Okay, let's run the application and test it using Postman. Here's what you should do after opening Postman:
+
+**1. Create Collections (Optional but Recommended)**
+
+* Create a new collection in Postman to organize your API requests. You can name it something like "Library Management System API."
+* Within this collection, create requests for each API endpoint you want to test (e.g., "Get All Books," "Add Book," "Register User," "Login User," etc.).
+
+**2. Make API Requests:**
+
+* **Get All Books:**
+    * Select the "Get All Books" request you created.
+    * Set the HTTP Method to "GET."
+    * In the "URL" field, enter the endpoint: `http://localhost:3000/api/books` (or the port you're using in your `app.js`).
+    * Click "Send." 
+    * Verify that the response status is 200 OK and that the response body contains an array of book objects.
+
+* **Add a New Book:**
+    * Select the "Add Book" request.
+    * Set the HTTP Method to "POST."
+    * In the "URL" field, enter the endpoint: `http://localhost:3000/api/books`
+    * In the "Body" tab, select "raw" and choose "JSON" as the format.
+    * Enter the following JSON data:
+
+      ```json
+      {
+        "title": "The Lord of the Rings",
+        "author": "J.R.R. Tolkien",
+        "isbn": "9780261102354"
+      }
+      ```
+
+    * Click "Send."
+    * Verify that the response status is 201 Created and that the response body contains the newly created book object.
+
+* **Get Book by ID:**
+    * Select the "Get Book by ID" request.
+    * Set the HTTP Method to "GET."
+    * In the "URL" field, enter the endpoint: `http://localhost:3000/api/books/{id}` (replace `{id}` with the ID of the book you created).
+    * Click "Send."
+    * Verify that the response status is 200 OK and that the response body contains the details of the specified book.
+
+* **Update Book:**
+    * Select the "Update Book" request.
+    * Set the HTTP Method to "PUT."
+    * In the "URL" field, enter the endpoint: `http://localhost:3000/api/books/{id}` (replace `{id}` with the ID of the book you want to update).
+    * In the "Body" tab, select "raw" and choose "JSON" as the format. 
+    * Enter the updated book data in JSON format.
+    * Click "Send."
+    * Verify that the response status is 200 OK and that the response body contains the updated book object.
+
+* **Delete Book:**
+    * Select the "Delete Book" request.
+    * Set the HTTP Method to "DELETE."
+    * In the "URL" field, enter the endpoint: `http://localhost:3000/api/books/{id}` (replace `{id}` with the ID of the book you want to delete).
+    * Click "Send."
+    * Verify that the response status is 200 OK and that the response body contains a success message.
+
+* **Register User:**
+    * Select the "Register User" request.
+    * Set the HTTP Method to "POST."
+    * In the "URL" field, enter the endpoint: `http://localhost:3000/api/users/register`
+    * In the "Body" tab, select "raw" and choose "JSON" as the format.
+    * Enter the following JSON data:
+
+      ```json
+      {
+        "username": "testuser",
+        "password": "testpassword",
+        "email": "testuser@example.com"
+      }
+      ```
+
+    * Click "Send."
+    * Verify that the response status is 201 Created and that the response body contains a success message or the user ID.
+
+* **Login User:**
+    * Select the "Login User" request.
+    * Set the HTTP Method to "POST."
+    * In the "URL" field, enter the endpoint: `http://localhost:3000/api/users/login`
+    * In the "Body" tab, select "raw" and choose "JSON" as the format.
+    * Enter the following JSON data:
+
+      ```json
+      {
+        "username": "testuser",
+        "password": "testpassword"
+      }
+      ```
+
+    * Click "Send."
+    * Verify that the response status is 200 OK and that the response body contains a success message or the user ID.
+
+* **Get User Books:** 
+    * Select the "Get User Books" request.
+    * Set the HTTP Method to "GET."
+    * In the "URL" field, enter the endpoint: `http://localhost:3000/api/users/{userId}/books` (replace `{userId}` with the ID of the registered user).
+    * Click "Send."
+    * Verify that the response status is 200 OK and that the response body contains an array of book IDs requested by the user.
+
+* **Request Book:**
+    * Select the "Request Book" request.
+    * Set the HTTP Method to "POST."
+    * In the "URL" field, enter the endpoint: `http://localhost:3000/api/users/{userId}/requestBook/{bookId}` (replace `{userId}` with the user ID and `{bookId}` with the ID of the book).
+    * Click "Send."
+    * Verify that the response status is 200 OK and that the response body contains a success message.
+
+By following these steps, you can effectively test your Library Management System API using Postman. Remember to modify the JSON data and URLs as needed for your specific tests.
